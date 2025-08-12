@@ -7,6 +7,7 @@ pkgdesc='Modding framework for FROMSOFTWARE games'
 arch=('x86_64')
 url='https://me3.help'
 license=('Apache-2.0' 'MIT')
+depends=('glibc' 'gcc-libs' 'hicolor-icon-theme')
 optdepends=('steam: for supported games')
 # If there is a built-from-source package
 # provides=('me3')
@@ -33,8 +34,8 @@ package() {
   install -Dpm 0644 -t "$pkgdir/usr/share/mime/packages" dist/me3.xml
   install -Dpm 0644 -t "$pkgdir/usr/share/icons/hicolor/128x128/apps" dist/me3.png
 
-  install -Dpm 0644 -t "$pkgdir/usr/share/doc/me3" CHANGELOG.pdf
-  install -Dpm 0644 -t "$pkgdir/usr/share/licenses/me3" LICENSE-APACHE LICENSE-MIT
+  install -Dpm 0644 -t "$pkgdir/usr/share/doc/$pkgname" CHANGELOG.pdf
+  install -Dpm 0644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE-APACHE LICENSE-MIT
 
   # TODO: Remove this after me3#416 is fixed
   install -Dpm 0644 -t "$pkgdir/etc/me3" me3.toml
