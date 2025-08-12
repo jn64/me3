@@ -1,0 +1,12 @@
+post_install() {
+  echo "If you previously installed me3 from upstream installer script,
+you can remove the following:
+  ~/.local/bin/me3
+  ~/.local/share/me3/windows-bin/
+  ~/.local/share/applications/me3-launch.desktop
+  ~/.local/share/icons/hicolor/128x128/apps/me3.png
+  ~/.local/share/mime/application/x-me3.xml
+  ~/.local/share/mime/packages/me3.xml
+
+The system-wide me3 config is in /etc/me3/me3.toml. See 'me3 info' for more."
+}
