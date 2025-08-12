@@ -12,6 +12,7 @@ optdepends=('steam: for supported games')
 # If there is a built-from-source package
 # provides=('me3')
 # conflicts=('me3')
+backup=('etc/me3/me3.toml')
 source=("https://github.com/garyttierney/me3/releases/download/v$pkgver/me3-linux-amd64.tar.gz")
 sha256sums=('f3c59882ff3631286adf956059a781726189afacf992d9a55fbdc57042d1b578')
 
