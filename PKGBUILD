@@ -14,6 +14,15 @@ optdepends=('steam: for supported games')
 source=("https://github.com/garyttierney/me3/releases/download/v$pkgver/me3-linux-amd64.tar.gz")
 sha256sums=('f3c59882ff3631286adf956059a781726189afacf992d9a55fbdc57042d1b578')
 
+prepare() {
+  # TODO: Remove this after me3#416 is fixed
+  cat >me3.toml <<EOF
+# Workaround for Steam Linux Runtime containerised /usr
+# https://github.com/garyttierney/me3/issues/416
+windows_binaries_dir = '/run/host/usr/lib/me3/x86_64-windows'
+EOF
+}
+
 package() {
   install -Dpm 0755 -t "$pkgdir/usr/bin" bin/me3
   install -Dpm 0644 -t "$pkgdir/usr/lib/me3/x86_64-windows" \
@@ -26,4 +35,7 @@ package() {
 
   install -Dpm 0644 -t "$pkgdir/usr/share/doc/me3" CHANGELOG.pdf
   install -Dpm 0644 -t "$pkgdir/usr/share/licenses/me3" LICENSE-APACHE LICENSE-MIT
+
+  # TODO: Remove this after me3#416 is fixed
+  install -Dpm 0644 -t "$pkgdir/etc/me3" me3.toml
 }
