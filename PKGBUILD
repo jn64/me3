@@ -1,4 +1,4 @@
-# Maintainer: 
+# Maintainer: Your name here (*´ω｀*)
 
 pkgname=me3-bin
 pkgver=0.7.0
