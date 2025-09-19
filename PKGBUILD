@@ -1,7 +1,7 @@
 # Maintainer: Your name here (*´ω｀*)
 
 pkgname=me3-bin
-pkgver=0.7.0
+pkgver=0.8.1
 pkgrel=1
 pkgdesc='Modding framework for FROMSOFTWARE games'
 arch=('x86_64')
@@ -15,16 +15,7 @@ optdepends=('steam: for supported games')
 backup=('etc/me3/me3.toml')
 install=me3-bin.install
 source=("https://github.com/garyttierney/me3/releases/download/v$pkgver/me3-linux-amd64.tar.gz")
-sha256sums=('f3c59882ff3631286adf956059a781726189afacf992d9a55fbdc57042d1b578')
-
-prepare() {
-  # TODO: Remove this after me3#416 is fixed
-  cat >me3.toml <<EOF
-# Workaround for Steam Linux Runtime containerised /usr
-# https://github.com/garyttierney/me3/issues/416
-windows_binaries_dir = '/run/host/usr/lib/me3/x86_64-windows'
-EOF
-}
+sha256sums=('18a779c5ce6ed40067d1f89ebd4c12cacef9fd72b75e57b75f9048d990645703')
 
 package() {
   install -Dpm 0755 -t "$pkgdir/usr/bin" bin/me3
@@ -38,7 +29,4 @@ package() {
 
   install -Dpm 0644 -t "$pkgdir/usr/share/doc/$pkgname" CHANGELOG.pdf
   install -Dpm 0644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE-APACHE LICENSE-MIT
-
-  # TODO: Remove this after me3#416 is fixed
-  install -Dpm 0644 -t "$pkgdir/etc/me3" me3.toml
 }
