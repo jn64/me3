@@ -40,7 +40,7 @@ jobs:
           toolchain: stable
           targets: x86_64-pc-windows-msvc
       - uses: ./.github/actions/setup-windows-toolchain
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-22.04'
       - uses: Swatinem/rust-cache@f13886b937689c021905a6b90929199931d60db1 # v2.8.1
         with:
           shared-key: me3-build
@@ -71,7 +71,7 @@ jobs:
         if: ${{ !cancelled() }}
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       actions: write
@@ -146,7 +146,7 @@ jobs:
     name: End-to-end tests (Linux)
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       actions: read
     steps:
