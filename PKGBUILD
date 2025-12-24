@@ -1,7 +1,7 @@
 # Maintainer: Your name here (*´ω｀*)
 
 pkgname=me3-bin
-pkgver=0.9.0
+pkgver=0.10.1
 pkgrel=1
 pkgdesc='Modding framework for FROMSOFTWARE games'
 arch=('x86_64')
@@ -15,7 +15,7 @@ optdepends=('steam: for supported games')
 backup=('etc/me3/me3.toml')
 install=me3-bin.install
 source=("https://github.com/garyttierney/me3/releases/download/v$pkgver/me3-linux-amd64.tar.gz")
-sha256sums=('d94e1faaf99fbd0677fc6ebf1e9891d610029a23a31ebf9c62ce70c43ff8f72f')
+sha256sums=('5614ee9344b1b802ab184425c5ec219453f5ce7b89ae3e76cd8a375684c5007d')
 
 package() {
   install -Dpm 0755 -t "$pkgdir/usr/bin" bin/me3
